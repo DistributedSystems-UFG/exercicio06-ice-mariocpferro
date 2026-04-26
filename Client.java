@@ -16,9 +16,15 @@ public class Client {
                 throw new Error("Invalid proxy");
             }
 
-            // 4. Call the remote method
             String response = printer.printString("Hello from Goiania!");
             System.out.println("Server responded: " + response);
+
+            String[] lines = {"Line 1: foo", "Line 2: bar", "Line 3: baz"};
+            String linesResponse = printer.printLines(lines);
+            System.out.println("Server responded: " + linesResponse);
+
+            int count = printer.getPageCount();
+            System.out.println("Total pages printed: " + count);
 
         } catch (LocalException e) {
             e.printStackTrace();
